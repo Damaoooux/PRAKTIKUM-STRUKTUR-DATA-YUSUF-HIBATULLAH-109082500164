@@ -26,7 +26,7 @@ int main() {
 ```
 Pada program tersebut, ptr merupakan pointer yang menyimpan alamat memori dari variabel angka. Pernyataan &angka digunakan untuk memperoleh alamat memori variabel, sedangkan *ptr digunakan untuk mengakses nilai yang tersimpan pada alamat tersebut. Proses mengakses nilai melalui pointer disebut sebagai dereferencing.
 
-### C. Adress<br/>
+### C. Address<br/>
 Address atau alamat memori merupakan lokasi tempat suatu data disimpan di dalam memori komputer. Setiap variabel yang dibuat dalam program akan menempati lokasi tertentu pada memori dan memiliki alamat yang dapat digunakan untuk mengidentifikasi lokasi tersebut. Dalam C++, alamat suatu variabel dapat diketahui menggunakan operator &. Konsep address memiliki hubungan yang erat dengan pointer karena pointer digunakan untuk menyimpan alamat memori dari variabel lain.
 
 ```C++
@@ -86,7 +86,7 @@ Pada contoh tersebut, tampilkanPesan() merupakan procedure karena menggunakan ti
 
 ## Guided 
 
-### 1. Array 1
+### 1. Array 1 Dimensi
 
 ```C++
 #include<iostream>
@@ -108,36 +108,284 @@ int main(){
     return 0;
 }
 ```
-penjelasan singkat guided 1
+Kode C++ di atas bertujuan untuk menyimpan lima data nilai ke dalam sebuah array satu dimensi bernama nilai yang berkapasitas lima elemen bertipe data integer. Program pertama-tama mengisikan masing-masing data nilai secara manual mulai dari indeks ke-0 hingga indeks ke-4, lalu memanfaatkan perulangan for untuk mengakses dan menampilkan setiap elemen tersebut ke layar.
 
-### 2. ...
-
-```C++
-source code guided 2
-```
-penjelasan singkat guided 2
-
-### 3. ...
+### 2. Array 2 Dimensi
 
 ```C++
-source code guided 3
+#include <iostream>
+using namespace std;
+
+int main(){
+    int nilai[3][3] = {
+        {80, 75, 90},
+        {85, 95,88},
+        {70, 80, 85}
+    };
+
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            cout << nilai[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+    cout << nilai[1][2] << endl; 
+    return 0;
+}
 ```
-penjelasan singkat guided 3
+Program langsung menginisialisasi array dengan 3 baris dan 3 kolom data nilai. Selanjutnya, perulangan for bersarang (nested loop) digunakan untuk mencetak seluruh isi matriks ke layar, di mana baris dicetak secara berurutan dan dipisahkan oleh spasi serta baris baru. Di bagian akhir, program mengakses dan menampilkan elemen pada indeks baris ke-1 dan kolom ke-2 (nilai[1][2]), yang menghasilkan nilai 88 (karena indeks array dimulai dari angka 0).
+
+### 3. Array 3 Dimensi
+
+```C++
+#include<iostream>
+using namespace std;
+
+int main(){
+    int data[2][2][3] = {
+        {
+            {10, 20, 30},
+            {40, 50, 60}
+        },
+        {
+            {70, 80, 90},
+            {100, 110, 120}
+        }
+    };
+
+    cout << data[0][1][2] << endl;
+    return 0;
+}
+```
+Program di atas bertujuan untuk menyimpan dan mengakses kumpulan angka menggunakan array tiga dimensi bertipe int bernama data dengan ukuran 2 x 2 x 3 (2 blok, 2 baris, dan 3 kolom).
+
+Setelah array diinisialisasi dengan kumpulan nilai, program secara spesifik mengakses dan mencetak satu elemen menggunakan indeks data[0][1][2]. Elemen ini merujuk pada blok pertama (indeks 0), baris kedua (indeks 1), dan kolom ketiga (indeks 2), sehingga nilai yang ditampilkan ke layar adalah 60.
+
+### 4. Alamat/Address
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main(){
+    int angka = 100;
+    int *pointer;
+
+    pointer = &angka;
+    cout << "Nilai Angka        = " << angka << endl;
+    cout << "Alamat Angka       = " << &angka << endl;
+    cout << "Isi Pointer        = " << pointer << endl;
+    cout << "Nilai Pointer      = " << *pointer << endl;
+
+    return 0;
+}
+```
+Program mendeklarasikan variabel angka dengan nilai 100 dan sebuah pointer bertipe integer bernama pointer. Melalui perintah pointer = &angka, alamat memori dari variabel angka disimpan ke dalam variabel pointer tersebut. Saat dijalankan, program menampilkan nilai asli variabel angka (100), alamat memorinya dalam format heksadesimal (&angka), isi dari variabel pointer yang merekam alamat memori tersebut (pointer), serta nilai yang ditunjuk oleh pointer menggunakan proses dereferensi (*pointer) yang juga menghasilkan nilai 100.
+
+### 5. Pointer
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main(){
+    char arr[6];
+
+    arr[0]= 'a';
+    arr[1]= 'b';
+    arr[2]= 'c';
+    arr[3]= 'b';
+    arr[4]= 'd';
+    arr[5]= 'e';
+
+    cout << arr[3] << endl;
+    cout << &(arr[4]) << endl;
+
+    return 0;
+}
+```
+Setelah array diisi dengan karakter 'a' hingga 'e', program pertama-tama mencetak karakter pada indeks ke-3 (arr[3]), yaitu huruf 'b'. Selanjutnya, perintah &(arr[4]) digunakan untuk mengambil alamat memori elemen indeks ke-4 (huruf 'd'). Namun, karena cout memperlakukan pointer char* sebagai string berbasis C (C-style string), perintah tersebut akan mencetak seluruh karakter mulai dari indeks ke-4 hingga menemukan karakter netral.
+
+### 6. Function
+
+```C++
+#include<iostream>
+using namespace std;
+
+int maks3(int a, int b, int c){
+   int temp_max = a;
+   if(b > temp_max){
+      temp_max = b;
+   }
+    if(c > temp_max){
+        temp_max = c;
+    }
+    return temp_max;
+}
+
+int main(){
+    int x, y, z;
+
+    cout << "Masukkan nlai 1 : ";
+    cin >> x;
+
+    cout << "Masukkan nlai 2 : ";
+    cin >> y;
+
+    cout << "Masukkan nlai 3 : ";
+    cin >> z;
+
+    cout << "Nilai Maksimum adalah : " << maks3(x, y, z) << endl;
+    return 0;
+}
+```
+Program mendefinisikan fungsi maks3 yang menerima tiga parameter bertipe integer (a, b, c). Di dalam fungsi tersebut, nilai a dijadikan sebagai acuan awal nilai maksimum (temp_max), lalu dibandingkan secara bertahap dengan b dan c untuk memperbarui nilai terbesar sebelum dikembalikan (return). Pada fungsi utama (main), pengguna diminta memasukkan tiga nilai yang disimpan ke dalam variabel x, y, dan z, yang kemudian dikirim ke fungsi maks3 untuk mencetak nilai maksimumnya ke layar.
+
+### 7. Procedure
+
+```C++
+#include <iostream>
+using namespace std;
+
+void sapa(){
+    cout << "Hello World" << endl;
+}
+
+int main() {
+    sapa();
+    return 0;
+}
+```
+Program mendefinisikan fungsi bernama sapa dengan tipe void, yang berarti fungsi ini hanya bertugas menjalankan perintah di dalamnya—yaitu mencetak teks "Hello World"—tanpa mengembalikan nilai apa pun (no return value). Pada fungsi utama (main), fungsi sapa() dipanggil satu kali sehingga pesan "Hello World" berhasil ditampilkan ke layar saat program dijalankan.
+
+### 8. Call By Value/Pointer/Reference
+
+```C++
+#include<iostream>
+using namespace std;
+
+void tukar(int &x, int &y){
+    int temp;
+    temp= x;
+    x = y;
+    y = temp;
+}
+
+int main(){
+    int a = 4;
+    int b = 6;
+
+    cout << "Sebelum ditukar : " << endl;
+    cout << "Nilai a = " << a << endl;
+    cout << "Nilai b = " << b << endl;
+
+    tukar(a, b);
+
+    cout << "Setelah ditukar : " << endl;
+    cout << "Nilai a = " << a << endl;
+    cout << "Nilai b = " << b << endl;
+
+    return 0;
+}
+```
+Program mendefinisikan fungsi tukar yang menerima dua parameter bertipe integer yang melekat pada acuan memori (int &x dan int &y). Fungsi ini menggunakan variabel bantuan temp untuk menukar isi dari variabel yang dikirimkan. Di dalam fungsi main, program mendeklarasikan variabel a = 4 dan b = 6, mencetak nilainya sebelum ditukar, lalu memanggil fungsi tukar(a, b). Karena perubahan dilakukan langsung pada alamat memori asli melalui pass by reference, nilai variabel a dan b secara permanen berubah menjadi a = 6 dan b = 4 setelah pemanggilan fungsi.
 
 ## Unguided 
 
-### 1. (isi dengan soal unguided 1)
+### 1. Buatlah program yang dapat melakukan operasi penjumlahan, pengurangan, dan perkalian matriks 3x3 
 
 ```C++
-source code unguided 1
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A[3][3], B[3][3];
+    int jumlah[3][3], kurang[3][3], kali[3][3];
+
+    // MATRIX A //
+    cout << "Masukkan elemen Matriks A (3x3):" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << "A[" << i << "][" << j << "] = ";
+            cin >> A[i][j];
+        }
+    }
+
+    // MATRIX B
+    cout << "\nMasukkan elemen Matriks B (3x3):" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << "B[" << i << "][" << j << "] = ";
+            cin >> B[i][j];
+        }
+    }
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            jumlah[i][j] = A[i][j] + B[i][j];
+            kurang[i][j] = A[i][j] - B[i][j];
+        }
+    }
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            kali[i][j] = 0;
+
+            for (int k = 0; k < 3; k++) {
+                kali[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+    cout << "\nMatriks A:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << A[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    cout << "\nMatriks B:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << B[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    cout << "\nHasil Penjumlahan A + B:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << jumlah[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    cout << "\nHasil Pengurangan A - B:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << kurang[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    cout << "\nHasil Perkalian A x B:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << kali[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
 ```
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-contoh :
-![Screenshot Output Unguided 1_1](https://github.com/DhimazHafizh/2311102151_Muhammad-Dhimas-Hafizh-Fathurrahman/blob/main/Pertemuan1_Modul1/Output-Unguided1-1.png)
+![Screenshot Output Unguided 1_1](https://github.com/Damaoooux/PRAKTIKUM-STRUKTUR-DATA-YUSUF-HIBATULLAH-109082500164/blob/main/MODUL%202/UNGUIDED/Output_Soal1.0.png)
 
 ##### Output 2
 ![Screenshot Output Unguided 1_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
