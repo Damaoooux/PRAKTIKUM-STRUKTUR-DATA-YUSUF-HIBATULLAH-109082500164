@@ -5,7 +5,7 @@ int main() {
     int A[3][3], B[3][3];
     int jumlah[3][3], kurang[3][3], kali[3][3];
 
-    // MATRIX A
+    // MATRIX A //
     cout << "Masukkan elemen Matriks A (3x3):" << endl;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
