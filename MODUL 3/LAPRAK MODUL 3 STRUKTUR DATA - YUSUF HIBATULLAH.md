@@ -329,7 +329,7 @@ void tukarPointer(int *ptr1, int *ptr2) {
 }
 ```
 
-#### array.cpp
+#### main.cpp
 
 ```C++
 #include "array.h"
