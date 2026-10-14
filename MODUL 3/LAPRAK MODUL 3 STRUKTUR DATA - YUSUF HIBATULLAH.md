@@ -279,13 +279,13 @@ int main() {
 
 File pelajaran.h berfungsi untuk mendefinisikan struktur data pelajaran yang terdiri dari nama dan kode mata pelajaran, serta mendeklarasikan fungsi dan prosedur yang digunakan. File pelajaran.cpp berisi implementasi fungsi create_pelajaran() untuk membuat dan mengisi data mata pelajaran, serta prosedur tampil_pelajaran() untuk menampilkan informasi tersebut. Sementara itu, file main.cpp berfungsi sebagai program utama yang menginisialisasi nama mata pelajaran "Struktur Data" dan kode "STD". Cara kerja program dimulai dengan membuat variabel nama dan kode mata pelajaran, kemudian memanggil fungsi create_pelajaran() untuk menyimpan kedua data tersebut ke dalam struktur pelajaran. Selanjutnya, prosedur tampil_pelajaran() dipanggil untuk menampilkan nama dan kode mata pelajaran ke layar.
 
-### Buatlah program dengan ketentuan berikut:
+### 3. Buatlah program dengan ketentuan berikut:
 
 <ol>
-    <li>2 buah array 2D integer berukuran 3x3 dan 2 buah pointer integer</li>
-    <li>fungsi/prosedur yang menampilkan isi sebuah array integer 2D</li>
-    <li>fungsi/prosedur yang akan menukarkan isi dari 2 array integer 2D pada posisi tertentu</li>
-    <li>fungsi/prosedur yang akan menukarkan isi dari variabel yang ditunjuk oleh 2 buah pointer</li>
+    <li> 2 buah array 2D integer berukuran 3x3 dan 2 buah pointer integer</li>
+    <li> fungsi/prosedur yang menampilkan isi sebuah array integer 2D</li>
+    <li> fungsi/prosedur yang akan menukarkan isi dari 2 array integer 2D pada posisi tertentu</li>
+    <li> fungsi/prosedur yang akan menukarkan isi dari variabel yang ditunjuk oleh 2 buah pointer</li>
 </ol>
 
 #### array.h
